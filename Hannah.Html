@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Hermanita!</title>
+    <link rel="stylesheet" href="Hannah.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Confeti animado -->
+        <div class="confetti-container">
+            <div class="confetti confetti-1">🎉</div>
+            <div class="confetti confetti-2">🎊</div>
+            <div class="confetti confetti-3">🌟</div>
+            <div class="confetti confetti-4">💖</div>
+            <div class="confetti confetti-5">🎈</div>
+            <div class="confetti confetti-6">🦄</div>
+            <div class="confetti confetti-7">🌈</div>
+            <div class="confetti confetti-8">✨</div>
+        </div>
+        
+        <!-- Globos flotantes -->
+        <div class="balloons">
+            <div class="balloon balloon-1">🎈</div>
+            <div class="balloon balloon-2">🎈</div>
+            <div class="balloon balloon-3">🎈</div>
+            <div class="balloon balloon-4">🎈</div>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <!-- Header con animación -->
+            <header class="header">
+                <div class="birthday-cake">🎂</div>
+                <h1 class="title">¡Feliz Cumpleaños!</h1>
+                <h2 class="subtitle">Mi Chikiripiolka Bounsui 💕</h2>
+                <p class="age-text">¡Te quiero mUcho!</p>
+            </header>
+            
+            <!-- Sección de deseos (solo letras) -->
+            <div class="wishes-options">
+                <button class="wish-btn" onclick="showWish(0)">H</button>
+                <button class="wish-btn" onclick="showWish(1)">A</button>
+                <button class="wish-btn" onclick="showWish(2)">N</button>
+                <button class="wish-btn" onclick="showWish(3)">N</button>
+                <button class="wish-btn" onclick="showWish(4)">A</button>
+                <button class="wish-btn" onclick="showWish(5)">H</button>
+            </div>
+
+            <!-- Modal para mostrar el deseo -->
+            <div id="wishModal" class="modal">
+                <div class="modal-content">
+                    <h3 id="wishTitle"></h3>
+                    <p id="wishText"></p>
+                    <button class="btn btn-close" onclick="closeModal('wishModal')">Cerrar</button>
+                </div>
+            </div>
+            
+            <!-- Mensaje especial del hermano -->
+            <div class="sibling-flex">
+                <img src="Babys.jpg" alt="Hermano 1" class="sibling-photo">
+                <div class="sibling-text">
+                    <div class="sibling-emoji"></div>
+                    <h2>De tu hermano que te adora </h2>
+                    <p>Hannuch, gracias por aguantarme todos los días, por esas veces en que soy un fastidio y aún así te quedas. No sé qué haría sin ti, en serio. Eres la mejor en todo sentido, mi chikiripolka, la que siempre está ahí cuando más la necesito, la que me ayuda cuando tengo problemas, que siempre me apoya en mis locuras, simplemente mi compañera de vida te amu.</p>
+                    <p>Te quiero mucho y lo sabes porque siempre te lo digo, aunque no es algo material, espero te guste este pequeño regalito :). </p>
+                    <p>Miiiiiiiiiiiiiiiiiiiiii ... </p>
+                    <p class="signature">Con mucho cariño para ti enferma</p>
+                </div>
+                <img src="Adults.jpg" alt="Hermano 2" class="sibling-photo">
+            </div> 
+            <div class="buttons">
+                <button class="btn btn-party" onclick="startParty()">Collage</button>
+                <button class="btn btn-surprise" onclick="showSurprise()">Tu Regalo</button>
+                <button class="btn btn-song" onclick="playSong()">Una cancioncita for you</button>
+            </div>
+        </div>
+        
+        <!-- Modal de fiesta con collage -->
+        <div id="partyModal" class="modal">
+            <div class="modal-content party-content">
+              
+                <h2>Recuerditos tuyos </h2>
+                <div class="collage">
+                    <img src="1.jpg" alt="Foto 1" onclick="showPhotoModal(this.src)">
+                    <img src="2.jpg" alt="Foto 2" onclick="showPhotoModal(this.src)">
+                    <img src="3.jpg" alt="Foto 3" onclick="showPhotoModal(this.src)">
+                    <img src="4.jpg" alt="Foto 4" onclick="showPhotoModal(this.src)">
+                    <img src="5.jpg" alt="Foto 5" onclick="showPhotoModal(this.src)">
+                    <img src="6.jpg" alt="Foto 6" onclick="showPhotoModal(this.src)">
+                    <img src="7.jpg" alt="Foto 7" onclick="showPhotoModal(this.src)">
+                    <img src="8.jpg" alt="Foto 8" onclick="showPhotoModal(this.src)">
+                    <img src="9.jpg" alt="Foto 9" onclick="showPhotoModal(this.src)">
+                    <img src="10.jpg" alt="Foto 10" onclick="showPhotoModal(this.src)">
+                    <img src="11.jpg" alt="Foto 11" onclick="showPhotoModal(this.src)">
+                    <img src="12.jpg" alt="Foto 12" onclick="showPhotoModal(this.src)">
+                    <img src="14.jpg" alt="Foto 14" onclick="showPhotoModal(this.src)">
+                    <img src="15.jpg" alt="Foto 15" onclick="showPhotoModal(this.src)">
+                    <img src="16.jpg" alt="Foto 16" onclick="showPhotoModal(this.src)">
+                    <img src="17.jpg" alt="Foto 17" onclick="showPhotoModal(this.src)">
+                    <img src="18.jpg" alt="Foto 18" onclick="showPhotoModal(this.src)">
+                    <img src="19.jpg" alt="Foto 19" onclick="showPhotoModal(this.src)">
+                    <img src="20.jpg" alt="Foto 20" onclick="showPhotoModal(this.src)">
+                    <img src="21.jpg" alt="Foto 21" onclick="showPhotoModal(this.src)">
+                    <img src="22.jpg" alt="Foto 22" onclick="showPhotoModal(this.src)">
+                    <img src="23.jpg" alt="Foto 23" onclick="showPhotoModal(this.src)">
+                    <img src="24.jpg" alt="Foto 24" onclick="showPhotoModal(this.src)">
+                    <img src="25.jpg" alt="Foto 25" onclick="showPhotoModal(this.src)">
+                </div>
+                <button class="btn btn-close" onclick="closeModal('partyModal')">Simplemente Hermoso!!!</button>
+            </div>
+        </div>
+
+        <!-- Modal para ver la foto grande -->
+        <div id="photoModal" class="modal">
+            <div class="modal-content photo-modal-content">
+                <img id="modalPhoto" src="" alt="Foto grande">
+                <button class="btn btn-close" onclick="closeModal('photoModal')">💖</button>
+            </div>
+        </div>
+        
+        <!-- Modal de sorpresa -->
+        <div id="surpriseModal" class="modal">
+            <div class="modal-content surprise-content">
+                <div class="gift-emoji">🎁</div>
+                <h2>¡SORPRESA!</h2>
+                <p>Tu regalo especial es... ¡TODO MI CARIÑO DE HERMANO!</p>
+                <p>Y también un abrazo enorme</p>
+                <p> Mentira osea si pero aparte... presiona "ver regalo"</p>
+                <div class="surprise-elements"></div>
+                <button class="btn" onclick="showGiftModal()">Ver regalo 🎁</button>
+                <button class="btn btn-close" onclick="closeModal('surpriseModal')">¡Me encanta! 💕</button>
+            </div>
+        </div>
+
+        <!-- Nuevo modal de regalo -->
+        <div id="giftModal" class="modal">
+            <div class="modal-content">
+                <p>Y también un regalo material que pueda comprar (cuando tenga dinero)</p>
+                <button class="btn btn-close" onclick="closeModal('giftModal')">Con fe</button>
+            </div>
+        </div>
+        
+        <!-- Modal de canción -->
+        <div id="songModal" class="modal">
+            <div class="modal-content song-content">
+                <div class="music-emoji">🎵</div>
+                <h2>Mi hanuch</h2>
+                <div class="song-lyrics">
+                    <p>Eeeees mi hanuch</p>
+                    <p>Mi hermana adoradaaa</p>
+                    <p>Mi hermana adoradadaaa</p>
+                    <p>Esa hermana se llama Hanuch Hanuuuch</p>
+                </div>
+                <p>JAJAJAJJA te quiero mucho</p>
+                <button class="btn btn-close" onclick="closeModal('songModal')">¡Gracias! 🥰</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lista de deseos
+const wishes = [
+    { title: "H de Haz lo que te haga bien", text: "Si algo te suma, sí. Si no, next. Así de simple." },
+    { title: "A de Acuérdate de ti", text: "No siempre tienes que estar para todos. A veces, toca pensar en ti primero." },
+    { title: "N de No te compliques", text: "La vida ya es un lío... tú hazlo fácil, sin drama." },
+    { title: "N de No pierdas tu esencia", text: "Lo que te hace diferente es justo lo más importante que tienes." },
+    { title: "A de Atrévete", text: "Haz eso que tienes en mente, aunque te dé nervios. Capaz te sorprende." },
+    { title: "H de Hoy, vive tranqui", text: "Un día a la vez, sin presión. Ya estás haciendo más de lo que crees." }
+];
+
+
+
+        function showWish(idx) {
+            document.getElementById('wishTitle').innerText = wishes[idx].title;
+            document.getElementById('wishText').innerText = wishes[idx].text;
+            document.getElementById('wishModal').style.display = 'flex';
+        }
+
+        function startParty() {
+            createConfettiExplosion();
+            setTimeout(() => {
+                document.getElementById('partyModal').style.display = 'flex';
+            }, 800);
+        }
+
+        function showSurprise() {
+            createSparkleExplosion();
+            setTimeout(() => {
+                document.getElementById('surpriseModal').style.display = 'flex';
+            }, 600);
+        }
+
+        function playSong() {
+            createMusicNotes();
+            setTimeout(() => {
+                document.getElementById('songModal').style.display = 'flex';
+            }, 500);
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function showGiftModal() {
+            document.getElementById('giftModal').style.display = 'flex';
+        }
+
+        function showPhotoModal(src) {
+            document.getElementById('modalPhoto').src = src;
+            document.getElementById('photoModal').style.display = 'flex';
+        }
+
+        function createConfettiExplosion() {
+            const container = document.querySelector('.container');
+            const confettiEmojis = ['🎉', '🎊', '🎈', '🌟', '💖', '🦄', '🌈', '✨', '🎁', '🎂'];
+            for (let i = 0; i < 25; i++) {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = confettiEmojis[Math.floor(Math.random() * confettiEmojis.length)];
+                confetti.className = 'explosion-confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 0.8 + 's';
+                container.appendChild(confetti);
+                setTimeout(() => {
+                    if (confetti.parentNode) confetti.parentNode.removeChild(confetti);
+                }, 4000);
+            }
+        }
+
+        function createSparkleExplosion() {
+            const container = document.querySelector('.container');
+            const sparkles = ['✨', '⭐', '🌟', '💫', '🔮', '💎', '🌸', '🦋'];
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.innerHTML = sparkles[Math.floor(Math.random() * sparkles.length)];
+                sparkle.className = 'explosion-sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 0.6 + 's';
+                container.appendChild(sparkle);
+                setTimeout(() => {
+                    if (sparkle.parentNode) sparkle.parentNode.removeChild(sparkle);
+                }, 3500);
+            }
+        }
+
+        function createMusicNotes() {
+            const container = document.querySelector('.container');
+            const notes = ['🎵', '🎶', '🎼', '🎤', '🎸', '🎹'];
+            for (let i = 0; i < 15; i++) {
+                const note = document.createElement('div');
+                note.innerHTML = notes[Math.floor(Math.random() * notes.length)];
+                note.className = 'explosion-note';
+                note.style.left = Math.random() * 100 + '%';
+                note.style.top = Math.random() * 100 + '%';
+                note.style.animationDelay = Math.random() * 0.4 + 's';
+                container.appendChild(note);
+                setTimeout(() => {
+                    if (note.parentNode) note.parentNode.removeChild(note);
+                }, 3000);
+            }
+        }
+
+        // Cerrar modales al hacer clic fuera
+        window.onclick = function(event) {
+            const modals = [
+                'partyModal', 'surpriseModal', 'songModal', 'wishModal', 'giftModal', 'photoModal'
+            ];
+            modals.forEach(id => {
+                const modal = document.getElementById(id);
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        // Animación automática de globos
+        setInterval(() => {
+            const balloons = document.querySelectorAll('.balloon');
+            balloons.forEach(balloon => {
+                balloon.style.transform = `translateY(${Math.sin(Date.now() * 0.001) * 20}px)`;
+            });
+        }, 50);
+    </script>
+</body>
+</html>

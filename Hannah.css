@@ -1,0 +1,521 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Fondo principal pastel */
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffe4ec, #fffde4, #e0f7fa, #e0e7ff, #ffe4fa);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    position: relative;
+    padding: 20px;
+}
+
+/* Confeti animado pastel */
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    font-size: 2rem;
+    animation: confettiFall 4s linear infinite;
+    opacity: 0.8;
+    color: #f8bbd0;
+}
+
+.confetti-1 { left: 10%; animation-delay: 0s; }
+.confetti-2 { left: 20%; animation-delay: 0.5s; }
+.confetti-3 { left: 30%; animation-delay: 1s; }
+.confetti-4 { left: 40%; animation-delay: 1.5s; }
+.confetti-5 { left: 60%; animation-delay: 2s; }
+.confetti-6 { left: 70%; animation-delay: 2.5s; }
+.confetti-7 { left: 80%; animation-delay: 3s; }
+.confetti-8 { left: 90%; animation-delay: 3.5s; }
+
+/* Globos flotantes pastel */
+.balloons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.balloon {
+    position: absolute;
+    font-size: 3rem;
+    animation: balloonFloat 6s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.balloon-1 { left: 5%; color: #ffe4ec; animation-delay: 0s; }
+.balloon-2 { left: 25%; color: #e0f7fa; animation-delay: 1.5s; }
+.balloon-3 { left: 75%; color: #fffde4; animation-delay: 3s; }
+.balloon-4 { left: 95%; color: #ffe4fa; animation-delay: 4.5s; }
+
+/* Contenido principal */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: bounceIn 1.5s ease-out;
+}
+
+.birthday-cake {
+    font-size: 6rem;
+    margin-bottom: 20px;
+    animation: cakeBounce 2s ease-in-out infinite;
+    display: inline-block;
+}
+
+.title {
+    font-size: 4.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #f8bbd0, #b2ebf2, #ffe0f7, #fffde4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 8px rgba(200,200,200,0.12);
+    animation: titleRainbow 3s ease-in-out infinite;
+}
+
+.subtitle {
+    font-size: 2.5rem;
+    color: #b39ddb;
+    font-weight: 700;
+    text-shadow: 0 3px 6px rgba(200,200,200,0.18);
+    margin-bottom: 10px;
+    animation: subtitleGlow 2s ease-in-out infinite;
+}
+
+.age-text {
+    font-size: 1.8rem;
+    color: #81d4fa;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(200,200,200,0.18);
+    animation: textPulse 1.5s ease-in-out infinite;
+}
+
+/* Opciones de deseos como botones pastel */
+.wishes-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+/* Botones de deseos pastel */
+.wish-btn {
+    background: linear-gradient(135deg, #d0e6fa, #e0c3fc);
+    color: #5a4e7c;
+    border: none;
+    border-radius: 30px;
+    padding: 20px 30px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(160, 180, 250, 0.12);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    margin: 5px;
+    outline: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.wish-btn:hover {
+    background: linear-gradient(135deg, #e0c3fc, #d0e6fa);
+    color: #3d3759;
+}
+
+/* Elimina las tarjetas de deseos originales */
+.wishes-container {
+    display: none;
+}
+
+/* Mensaje especial y fotos pastel */
+.special-message,
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 35px;
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(200,200,200,0.12);
+    border: 4px solid #ffe4fa;
+    color: #7c6f7c;
+}
+
+.sibling-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.sibling-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border: 4px solid #ffe0f7;
+}
+
+.sibling-text {
+    flex: 1 1 300px;
+    min-width: 250px;
+}
+
+.sibling-emoji,
+.party-emoji, .gift-emoji, .music-emoji {
+    font-size: 5rem;
+    margin-bottom: 25px;
+    color: #b2ebf2;
+    animation: emojiSpin 2s ease-in-out infinite;
+}
+
+.special-message h2,
+.modal-content h2 {
+    font-size: 3rem;
+    background: linear-gradient(45deg, #b2ebf2, #f8bbd0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(200,200,200,0.08);
+}
+
+.special-message p,
+.modal-content p {
+    font-size: 1.4rem;
+    color: #7c6f7c;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    font-weight: 600;
+}
+
+.signature {
+    font-size: 1.6rem !important;
+    background: linear-gradient(45deg, #f8bbd0, #fffde4) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 800 !important;
+    font-style: italic;
+    margin-bottom: 40px !important;
+}
+
+/* Botones pastel de acciones */
+.buttons {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background: linear-gradient(135deg, #fbeee6, #e0ece4);
+    color: #6d6875;
+    border: none;
+    border-radius: 30px;
+    padding: 20px 30px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(200, 230, 250, 0.12);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    margin: 5px;
+    outline: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #e0ece4, #fbeee6);
+    color: #4d4c5c;
+}
+
+/* Botón fiesta */
+.btn-party {
+    background: linear-gradient(135deg, #e0c3fc, #f5f7fa);
+    color: #6d6875;
+}
+.btn-party:hover {
+    background: linear-gradient(135deg, #f5f7fa, #e0c3fc);
+}
+
+/* Botón sorpresa */
+.btn-surprise {
+    background: linear-gradient(135deg, #f7d9e3, #f5f7fa);
+    color: #6d6875;
+}
+.btn-surprise:hover {
+    background: linear-gradient(135deg, #f5f7fa, #f7d9e3);
+}
+
+/* Botón canción */
+.btn-song {
+    background: linear-gradient(135deg, #d0e6fa, #f5f7fa);
+    color: #6d6875;
+}
+.btn-song:hover {
+    background: linear-gradient(135deg, #f5f7fa, #d0e6fa);
+}
+
+/* Botón cerrar */
+.btn-close {
+    background: linear-gradient(135deg, #e0ece4, #fbeee6);
+    color: #6d6875;
+}
+.btn-close:hover {
+    background: linear-gradient(135deg, #fbeee6, #e0ece4);
+}
+
+/* Collage de fotos */
+.collage {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 12px;
+    justify-items: center;
+    margin: 20px 0;
+}
+
+.collage img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    border: 2px solid #ffe4fa;
+    padding: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.collage img:hover {
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 8px 24px rgba(200, 180, 250, 0.18);
+}
+
+/* Modal para foto grande */
+.photo-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px 20px;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+#modalPhoto {
+    max-width: 70vw;
+    max-height: 60vh;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    border: 2px solid #ffe4fa;
+    background: #fff;
+}
+
+/* Modales */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    animation: modalFadeIn 0.4s ease-out;
+}
+
+.party-elements, .surprise-elements {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.party-elements span, .surprise-elements span {
+    font-size: 2.5rem;
+    animation: elementBounce 1s ease-in-out infinite;
+    color: #f8bbd0;
+}
+
+.party-elements span:nth-child(2), .surprise-elements span:nth-child(2) { animation-delay: 0.2s; }
+.party-elements span:nth-child(3), .surprise-elements span:nth-child(3) { animation-delay: 0.4s; }
+.party-elements span:nth-child(4), .surprise-elements span:nth-child(4) { animation-delay: 0.6s; }
+.party-elements span:nth-child(5), .surprise-elements span:nth-child(5) { animation-delay: 0.8s; }
+
+.song-lyrics {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 25px 0;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.song-lyrics p {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    animation: lyricPulse 2s ease-in-out infinite;
+    color: #b39ddb;
+}
+
+/* Elementos de explosión */
+.explosion-confetti, .explosion-sparkle, .explosion-note {
+    position: absolute;
+    font-size: 2.5rem;
+    pointer-events: none;
+    z-index: 999;
+    color: #f8bbd0;
+}
+
+.explosion-confetti {
+    animation: confettiExplode 4s ease-out forwards;
+}
+
+.explosion-sparkle {
+    animation: sparkleExplode 3.5s ease-out forwards;
+}
+
+.explosion-note {
+    animation: noteExplode 3s ease-out forwards;
+}
+
+/* Animaciones */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes confettiFall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+@keyframes balloonFloat {
+    0%, 100% { transform: translateY(100vh) rotate(0deg); }
+    50% { transform: translateY(-50px) rotate(10deg); }
+}
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3) translateY(-100px); }
+    50% { opacity: 1; transform: scale(1.1) translateY(0); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes cakeBounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(-5deg); }
+    75% { transform: translateY(-15px) rotate(5deg); }
+}
+@keyframes titleRainbow {
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(180deg); }
+}
+@keyframes subtitleGlow {
+    0%, 100% { text-shadow: 0 3px 6px rgba(200,200,200,0.18); }
+    50% { text-shadow: 0 3px 20px rgba(255,255,255,0.5); }
+}
+@keyframes textPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes modalBounceIn {
+    0% { opacity: 0; transform: scale(0.3) translateY(-100px) rotate(-10deg); }
+    50% { opacity: 1; transform: scale(1.1) translateY(0) rotate(5deg); }
+    100% { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); }
+}
+@keyframes emojiSpin {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(360deg) scale(1.2); }
+}
+@keyframes elementBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+@keyframes lyricPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+@keyframes confettiExplode {
+    0% { opacity: 1; transform: scale(0) rotate(0deg); }
+    50% { opacity: 1; transform: scale(2) rotate(180deg); }
+    100% { opacity: 0; transform: scale(0) rotate(360deg) translateY(-200px); }
+}
+@keyframes sparkleExplode {
+    0% { opacity: 1; transform: scale(0) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.8) rotate(270deg); }
+    100% { opacity: 0; transform: scale(0) rotate(540deg) translateY(-150px); }
+}
+@keyframes noteExplode {
+    0% { opacity: 1; transform: scale(0) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
+    100% { opacity: 0; transform: scale(0) rotate(360deg) translateY(-120px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .title { font-size: 3rem; }
+    .subtitle { font-size: 2rem; }
+    .age-text { font-size: 1.4rem; }
+    .wishes-options { gap: 12px; }
+    .special-message { padding: 45px 25px; }
+    .special-message h2 { font-size: 2.3rem; }
+    .buttons { flex-direction: column; align-items: center; }
+    .btn { width: 100%; max-width: 320px; }
+    .modal-content { padding: 35px 25px; margin: 15px; }
+    .modal-content h2 { font-size: 2.2rem; }
+    .sibling-flex { flex-direction: column; gap: 18px; }
+    .sibling-photo { width: 90px; height: 90px; }
+    .collage img { width: 80px; height: 80px; }
+    #modalPhoto { max-width: 90vw; max-height: 40vh; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 10px; }
+    .title { font-size: 2.2rem; }
+    .birthday-cake { font-size: 3.5rem; }
+    .sibling-photo { font-size: 2.5rem; width: 70px; height: 70px; }
+    .sibling-emoji { font-size: 3rem; }
+    .party-emoji, .gift-emoji, .music-emoji { font-size: 3rem; }
+    .collage img { width: 60px; height: 60px; }
+    #modalPhoto { max-width: 98vw; max-height: 30vh; }
+}
